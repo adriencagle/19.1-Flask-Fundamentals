@@ -1,35 +1,17 @@
-# Put your app in here.
-from flask import Flask, request
+from flask import Flask
+
 app = Flask(__name__)
-from operations import add 
-from operations import sub 
-from operations import mult 
-from operations import div
+@app.route('/welcome')
+def welcomePage():
+    html = "<html><body><h1>welcome</h1></body></html>"
+    return html
 
-@app.route ('/add')
-def addNum():
-    aNum = int(request.args.get('a'))
-    bNum = int(request.args.get('b'))
-    product = add(aNum, bNum)
-    return str(product)
+@app.route('/welcome/home')
+def welcomeHome():
+    html = "<html><body><h1>welcome home</h1></body></html>"
+    return html
 
-@app.route ('/sub')
-def subNum():
-    aNum = int(request.args.get('a'))
-    bNum = int(request.args.get('b'))
-    product = sub(aNum, bNum)
-    return str(product)
-
-@app.route ('/mult')
-def multNum():
-    aNum = int(request.args.get('a'))
-    bNum = int(request.args.get('b'))
-    product = mult(aNum, bNum)
-    return str(product)
-
-@app.route ('/div')
-def divNum():
-    aNum = int(request.args.get('a'))
-    bNum = int(request.args.get('b'))
-    product = div(aNum, bNum)
-    return str(product)
+@app.route('/welcome/back')
+def welcomeBack():
+    html = "<html><body><h1>welcome back</h1></body></html>"
+    return html
